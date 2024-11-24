@@ -1,0 +1,30 @@
+---
+generate_content_task:
+  description: Create a {Word_Count}-word educational text for {Topic_Name} at {GRADE}
+    level. The content should be engaging, comprehensive, and suitable for GED preparation.
+  expected_output: A {Word_Count}-word educational text on {Topic_Name} suitable for
+    {GRADE} level.
+  async_execution: false
+  agent: content_specialist
+
+create_quiz_task:
+  description: Develop {Number_of_Questions} multiple-choice questions based on the
+    content generated for {Topic_Name}. Ensure questions cover key content points
+    and are appropriate for {GRADE}.
+  expected_output: A set of {Number_of_Questions} multiple-choice questions with options
+    and correct answers based on the content for {Topic_Name}.
+  async_execution: false
+  agent: quiz_developer
+  context:
+  - generate_content_task
+
+review_content_and_quiz_task:
+  description: Review the educational content and multiple-choice questions for quality,
+    accuracy, and appropriateness for {GRADE}. Provide feedback or approval for both.
+  expected_output: Reviewed and approved educational content and quiz questions, ensuring
+    readiness for publication.
+  async_execution: false
+  agent: content_reviewer
+  context:
+  - generate_content_task
+  - create_quiz_task

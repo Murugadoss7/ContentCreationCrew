@@ -1,0 +1,18 @@
+[project]
+name = "educational_content_creation"
+version = "0.1.0"
+description = "educational_content_creation using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.79.4,<1.0.0"
+]
+
+[project.scripts]
+educational_content_creation = "educational_content_creation.main:run"
+run_crew = "educational_content_creation.main:run"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
